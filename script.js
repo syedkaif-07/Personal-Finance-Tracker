@@ -14,14 +14,10 @@ function handleChange(event) {
     let value = event.target.value;
     obj[key] = value;
     obj.id = Math.random() * 100 + 1
+     // obj.id = crypto.randomUUID();  // generate unique ID
 }
 
-// Show data in Html
-
-
-
-
-
+// Show data in Html....
 function showdata() {
     let tablebody = document.getElementById('tbody');
     tablebody.innerHTML = '';
@@ -208,7 +204,6 @@ function Model(id) {
 
 
 function changetypes(selectedType) {
-    console.log("Selected:", selectedType);
     let data = JSON.parse(localStorage.getItem('transaction')) || [];
     let tablebody = document.getElementById('tbody');
     tablebody.innerHTML = '';
@@ -241,7 +236,6 @@ function changetypes(selectedType) {
 }
 
 function ChangeCategory(selectedType) {
-    console.log("Selected:", selectedType);
     let data = JSON.parse(localStorage.getItem('transaction')) || [];
     let tablebody = document.getElementById('tbody');
     tablebody.innerHTML = '';
