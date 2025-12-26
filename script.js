@@ -208,13 +208,11 @@ function Model(id) {
 
 
 function changetypes(selectedType) {
-    console.log(selectedType);  // optional, debugging ke liye
-
-    let data = JSON.parse(localStorage.getItem('transaction')) || [];
+    let data = JSON.parse(localStorage.getItem('transaction')) || []
+    console.log(data);
     let tablebody = document.getElementById('tbody');
     tablebody.innerHTML = '';
     let Alldata = selectedType === 'All' ? data : data.filter(item => item.type === selectedType);
-
     Alldata.forEach(items => {
         tablebody.innerHTML += `
            <tr class="text-secondary">
@@ -238,9 +236,7 @@ function changetypes(selectedType) {
 }
 
 
-function changetypes(selectedType) {
-    console.log(selectedType);
-}
+
 
 
 
