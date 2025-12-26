@@ -68,29 +68,24 @@ function edit(id) {
     // input fields me set karo
     document.getElementById("E-title").value = item.title;
     document.getElementById("E-amount").value = item.amount;
-    if (item.type === 'Income') {
-        document.getElementById('type-e').innerHTML = `
-           <input  name="type" type="button" value="Income"
-           class="w-50 text-center p-2 bg-success text-light border rounded ">
-           <input  name="type" type="button" value="Expense"
-            class="w-50 p-2 bg-light border-secondary text-dark border rounded" id="E-type2">
-              </div>
-        `
-    }
-    else {
-        document.getElementById('type-e').innerHTML = ` 
-              <input  name="type" type="button" value="Income"
-             class="w-50 text-center p-2 border-secondary text-dark border rounded ">
-
-                <input  name="type" type="button" value="Expense"
-                  class="w-50 p-2 bg-danger text-light border rounded" id="E-type2">
-              </div>`
-    }
     document.getElementById("E-Category").value = item.Category;
     document.getElementById("E-date").value = item.date;
     document.getElementById("E-note").value = item.note;
     document.getElementById("id").value = item.id;
-    console.log(item);
+   // type select and active class
+    const type1 = document.getElementById('E-type1');
+    const type2 = document.getElementById('E-type2');
+
+    if(item.type === 'Income'){
+        type1.value = item.type;
+        type1.classList.add('active');      // active class add
+        type2.classList.remove('active');   // dusre se remove
+    } else {
+        type2.value = item.type;
+        type2.classList.add('active');      
+        type1.classList.remove('active');   
+    }
+
 }
 
 // Update Data...
@@ -269,6 +264,13 @@ function ChangeCategory(selectedType) {
 
 
 
+// Example
+
+let item = { Category: "Food" };
+let selectedType = "food";
+
+console.log(item.Category === selectedType); // false, kyunki "Food" != "food"
+console.log(item.Category.toLowerCase() === selectedType.toLowerCase()); // true
 
 
 

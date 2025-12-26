@@ -71,6 +71,18 @@ body {
   background-color: rgba(255, 0, 0, 0.699);
 } */
 
+ .type-btn {
+  background-color: #edf0f235;
+  cursor: pointer;
+  color: #bcafaf;
+}
+
+.type-btn.active {
+  background-color: rgba(0, 0, 255, 0.627) !important;
+  color: white;
+  font-weight: bold;
+  border: 2px solid rgba(255, 0, 0, 0.82) ;
+}
 
 .transaction {
   width: 90%;
