@@ -208,32 +208,40 @@ function Model(id) {
 
 
 function changetypes(selectedType) {
-    let data = JSON.parse(localStorage.getItem('transaction')) || []
-    console.log(data);
+    console.log("Selected:", selectedType);
+    let data = JSON.parse(localStorage.getItem('transaction')) || [];
     let tablebody = document.getElementById('tbody');
     tablebody.innerHTML = '';
-    let Alldata = selectedType === 'All' ? data : data.filter(item => item.type === selectedType);
+    let Alldata = selectedType === 'All'
+        ? data
+        : data.filter(item => item.type.toLowerCase() === selectedType.toLowerCase());
     Alldata.forEach(items => {
         tablebody.innerHTML += `
-           <tr class="text-secondary">
-        <td  scope="col" class="text-start" >${items.title}</td>
+        <tr class="text-secondary">
+        <td onclick="Model(${items.id})" scope="col" class="text-start"  data-bs-toggle="modal"
+      data-bs-target="#mewModal">${items.title}</td>
         <td scope="col" class="text-start">${items.amount}</td>
         <td scope="col" class="text-start">${items.type}</td>
         <td scope="col" class="text-start">${items.Category}</td>
         <td scope="col" class="text-start">${items.date}</td>
         <td scope="col" class="text-start">${items.note}</td>
         <td scope="col" class="text-start">
-        <svg  class="text-primary"  xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+        <svg onclick="edit(${items.id})" class="text-primary" data-bs-toggle="modal" data-bs-target="#EditBox"
+              data-bs-whatever="@getbootstrap"   xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
   <path d="M12.146.854a.5.5 0 0 1 .708 0l2.292 2.292a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2L2 11.207V13h1.793L14 3.793 11.207 2zM15 1.5L13.5 0 12 1.5 13.5 3 15 1.5z"/>
 </svg>
-<svg class="ms-3 text-danger" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+<svg onclick="deleteicon(${items.id})"  id"deleteicon" class="ms-3 text-danger" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
   <path d="M5.5 5.5A.5.5 0 0 1 6 5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5zm-1-1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1H4.5v-1z"/>
   <path d="M14.5 3a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V2a.5.5 0 0 1 .5-.5H5.5l.5-.5h4l.5.5h3.5a.5.5 0 0 1 .5.5v1zM4.118 4 4 14.5A1.5 1.5 0 0 0 5.5 16h5a1.5 1.5 0 0 0 1.5-1.5L11.882 4H4.118z"/>
 </svg>
 </td> </tr>
-        `;
+  
+`
+            ;
     });
 }
+
+
 
 
 
