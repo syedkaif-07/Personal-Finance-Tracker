@@ -181,6 +181,7 @@
     </div>
   </div>
 
+
   <div class="container search-parent mt-4 bg-light  p-4" id="SearchModel">
     <div class="row align-items-center  ">
       <div class="searcharea col-md-8">
@@ -191,7 +192,10 @@
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
+
           <input type="search" name="search" id="search" placeholder="Search transaction...." />
+          <input onchange="search(this.value) " type="search" name="search" id="search" placeholder="Search transaction...." />
+
         </div>
       </div>
 
@@ -208,6 +212,7 @@
       <div class="searcharea col-md-2">
         <div class="search-section">
           <select name="All Types" class=" p-2" onchange="ChangeCategory(this.value)">
+          <select onchange="ChangeCategory(this.value)" name="All Types" class=" p-2">
             <option value="All">All Categories</option>
             <option value="Salary">Salary</option>
             <option value="Freelance">Freelance</option>
@@ -216,7 +221,7 @@
             <option value="Utlities">Utlities</option>
             <option value="Entertainment">Entertainment</option>
             <option value="Shopping">Shopping</option>
-            <option value="Shopping">Health & Fitness</option>
+            <option value="Health & Fitness">Health & Fitness</option>
             <option value="Educatioin">Educatioin</option>
             <option value="Bills">Bills</option>
             <option value="Travels">Travels</option>
@@ -294,6 +299,7 @@
                 <select onchange="handleChange(event)" name="Category" id="S-Category" name="Category"
                   class="w-100 p-2 border-1 rounded" disabled>
                   <option value="">Select a Category</option>
+                  <option value="All">Select a Category</option>
                   <option value="Food and Dining">Food and Dining</option>
                   <option value="Transportation">Transportation</option>
                   <option value="Utlities">Utlities</option>
@@ -362,6 +368,10 @@
                   class="w-50 text-center p-2 bg-success text-light border rounded "  id="E-type1">
                 <input name="type" type="button" value="Expense"
                   class="w-50 p-2 bg-light border-secondary text-dark border rounded" id="E-type2">
+              </div>
+                  class="w-50 text-center p-2   border rounded  type-btn" id="E-type1">
+                <input name="type" type="button" value="Expense" class="w-50 p-2  border rounded type-btn"
+                  id="E-type2">
               </div>
             </div>
             <div class="mt-3">

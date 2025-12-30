@@ -14,11 +14,11 @@ function handleChange(event) {
     let value = event.target.value;
     obj[key] = value;
     obj.id = Math.random() * 100 + 1
+    // obj.id = crypto.randomUUID();  // generate unique ID
 }
 
-// Show data in Html
 
-
+// Show data in Html....
 function showdata() {
     let tablebody = document.getElementById('tbody');
     tablebody.innerHTML = '';
@@ -75,7 +75,20 @@ function edit(id) {
     document.getElementById("E-date").value = item.date;
     document.getElementById("E-note").value = item.note;
     document.getElementById("id").value = item.id;
-    console.log(item);
+    // type select and active class
+    const type1 = document.getElementById('E-type1');
+    const type2 = document.getElementById('E-type2');
+
+    if (item.type === 'Income') {
+        type1.value = item.type;
+        type1.classList.add('active');      // active class add
+        type2.classList.remove('active');   // dusre se remove
+    } else {
+        type2.value = item.type;
+        type2.classList.add('active');
+        type1.classList.remove('active');
+    }
+
 }
 
 // Update Data...
@@ -252,6 +265,53 @@ function ChangeCategory(selectedType) {
 `   ;
     });
 }
+
+
+function search(type) {
+    let data = JSON.parse(localStorage.getItem('transaction')) || [];
+    let tablebody = document.getElementById('tbody');
+    tablebody.innerHTML = '';
+    let search = document.getElementById('search').value.toLowerCase();
+    data.filter(item => item.Category.toLowerCase() === type.toLowerCase())
+    data.forEach(items => {
+        tablebody.innerHTML += `
+        <tr class="text-secondary">
+        <td onclick="Model(${items.id})" scope="col" class="text-start"  data-bs-toggle="modal"
+      data-bs-target="#mewModal">${items.title}</td>
+        <td scope="col" class="text-start">${items.amount}</td>
+        <td scope="col" class="text-start">${items.type}</td>
+        <td scope="col" class="text-start">${items.Category}</td>
+        <td scope="col" class="text-start">${items.date}</td>
+        <td scope="col" class="text-start">${items.note}</td>
+        <td scope="col" class="text-start">
+        <svg onclick="edit(${items.id})" class="text-primary" data-bs-toggle="modal" data-bs-target="#EditBox"
+              data-bs-whatever="@getbootstrap"   xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+  <path d="M12.146.854a.5.5 0 0 1 .708 0l2.292 2.292a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2L2 11.207V13h1.793L14 3.793 11.207 2zM15 1.5L13.5 0 12 1.5 13.5 3 15 1.5z"/>
+</svg>
+<svg onclick="deleteicon(${items.id})"  id"deleteicon" class="ms-3 text-danger" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+  <path d="M5.5 5.5A.5.5 0 0 1 6 5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5zm-1-1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1H4.5v-1z"/>
+  <path d="M14.5 3a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V2a.5.5 0 0 1 .5-.5H5.5l.5-.5h4l.5.5h3.5a.5.5 0 0 1 .5.5v1zM4.118 4 4 14.5A1.5 1.5 0 0 0 5.5 16h5a1.5 1.5 0 0 0 1.5-1.5L11.882 4H4.118z"/>
+</svg>
+</td> </tr>
+  
+`   ;
+        console.log(item);
+
+    });
+
+}
+
+
+
+// Example
+
+let item = { Category: "Food" };
+let selectedType = "food";
+
+console.log(item.Category === selectedType); // false, kyunki "Food" != "food"
+console.log(item.Category.toLowerCase() === selectedType.toLowerCase()); // true
+
+
 
 
 
