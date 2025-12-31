@@ -78,7 +78,7 @@ body {
 }
 
 .type-btn.active {
-  background-color: rgba(0, 0, 255, 0.627) !important;
+  background-color: rgba(0, 0, 255, 0.627) ;
   color: white;
   font-weight: bold;
   border: 2px solid rgba(255, 0, 0, 0.82) ;
@@ -127,6 +127,14 @@ form {
   padding: 7px;
 
 }
+.EditForm {
+  max-height: 600px;        /* Max height for scrolling */
+  overflow-y: auto;         /* Scroll when content exceeds */
+  padding: 7px;
+   scrollbar-width: none;
+}
+
+
 
 #deleteicon {
   padding-left: 50px;
@@ -172,15 +180,20 @@ form {
   padding-right: 15px;
   padding-left: 45px;
   background-color: rgba(24, 24, 24, 0);
-  border: 1px solid rgba(65, 63, 63, 0.564);
+  border: 1px solid rgba(0, 0, 0, 0.378);
   border-radius: 12px;
    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.155));
   
 }
 
+#deleteicon {
+  padding-left: 50px;
+}
+
 select {
   background-color: #F8F9FA;
   border-radius: 10px;
+  color: rgba(0, 0, 0, 0.791);
    
 }
 
@@ -220,3 +233,15 @@ color: white;
 .type-btn3.active{
   background-color: rgb(247, 29, 29);
 }
+
+
+/* #svglight{
+  margin-top: -62px;
+  color: rgba(169, 165, 165, 0.682);
+   filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.155));
+   cursor: pointer;
+} */
+/* body.dark-mode {
+  background-color: #605f5f64!important;
+color: white;
+} */
