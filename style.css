@@ -201,4 +201,22 @@ select {
     border-radius: 5px;
 }
 
+.type-btn2{
+background-color: rgba(7, 134, 7, 0.885);
+color: white;
+}
 
+.type-btn2.active{
+  background-color: #0d6efd;   /* blue */
+    color: #fff;
+    border: 1px solid white;
+}
+    
+.type-btn3{
+  background-color: rgba(247, 43, 43, 0.859);
+  color: white;
+}
+
+.type-btn3.active{
+  background-color: rgb(247, 29, 29);
+}

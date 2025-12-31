@@ -5,7 +5,8 @@ let obj = {
     Category: '',
     date: '',
     note: '',
-    id: ''
+    id: '',
+    srch: '',
 }
 // target object keys and value..
 
@@ -15,8 +16,21 @@ function handleChange(event) {
     obj[key] = value;
     obj.id = Math.random() * 100 + 1
     // obj.id = crypto.randomUUID();  // generate unique ID
+ 
 }
 
+
+
+   let btn = document.getElementById('type1');
+   btn.addEventListener('click',()=>{
+     btn.classList.add('active');
+    console.log(btn);
+   });
+
+     let btn2 = document.getElementById("type2");
+    btn2.addEventListener('click',()=>{
+        btn2.classList.add('active')
+    });
 
 // Show data in Html....
 function showdata() {
@@ -90,6 +104,18 @@ function edit(id) {
 
 }
 
+    const type = document.getElementById('E-type1');
+    type.addEventListener('click',()=>{
+        type.classList.add('active')
+     
+    })
+     const type2 = document.getElementById('E-type2');
+    type2.addEventListener('click',()=>{
+        type2.classList.add('active')
+       
+    })
+
+
 // Update Data...
 
 function update() {
@@ -127,6 +153,8 @@ function transaction() {
     document.getElementById("Category").value = '';
     document.getElementById("date").value = '';
     document.getElementById("note").value = '';
+    btn.classList.remove('active');
+    btn2.classList.add('active')
     console.log(obj);
     Summary();
 }
@@ -265,45 +293,42 @@ function ChangeCategory(selectedType) {
 }
 
 
+// Search bar
 
-
-
-
-
-
-// function search(type) {
-//     let data = JSON.parse(localStorage.getItem('transaction')) || [];
-//     let tablebody = document.getElementById('tbody');
-//     tablebody.innerHTML = '';
-//     let search = document.getElementById('search').value.toLowerCase();
-//     data.filter(item => item.Category.toLowerCase() === type.toLowerCase())
-//     data.forEach(items => {
-//         tablebody.innerHTML += `
-//         <tr class="text-secondary">
-//         <td onclick="Model(${items.id})" scope="col" class="text-start"  data-bs-toggle="modal"
-//       data-bs-target="#mewModal">${items.title}</td>
-//         <td scope="col" class="text-start">${items.amount}</td>
-//         <td scope="col" class="text-start">${items.type}</td>
-//         <td scope="col" class="text-start">${items.Category}</td>
-//         <td scope="col" class="text-start">${items.date}</td>
-//         <td scope="col" class="text-start">${items.note}</td>
-//         <td scope="col" class="text-start">
-//         <svg onclick="edit(${items.id})" class="text-primary" data-bs-toggle="modal" data-bs-target="#EditBox"
-//               data-bs-whatever="@getbootstrap"   xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-//   <path d="M12.146.854a.5.5 0 0 1 .708 0l2.292 2.292a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2L2 11.207V13h1.793L14 3.793 11.207 2zM15 1.5L13.5 0 12 1.5 13.5 3 15 1.5z"/>
-// </svg>
-// <svg onclick="deleteicon(${items.id})"  id"deleteicon" class="ms-3 text-danger" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-//   <path d="M5.5 5.5A.5.5 0 0 1 6 5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5zm-1-1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1H4.5v-1z"/>
-//   <path d="M14.5 3a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V2a.5.5 0 0 1 .5-.5H5.5l.5-.5h4l.5.5h3.5a.5.5 0 0 1 .5.5v1zM4.118 4 4 14.5A1.5 1.5 0 0 0 5.5 16h5a1.5 1.5 0 0 0 1.5-1.5L11.882 4H4.118z"/>
-// </svg>
-// </td> </tr>
+function search(value) {
+    let data = JSON.parse(localStorage.getItem('transaction')) || []
+    let tablebody = document.getElementById('tbody');
+    tablebody.innerHTML = '';
+    let result = data.filter((item) => item.Category.toLowerCase().includes(value.toLowerCase()))
+      result.forEach(items => {
+        tablebody.innerHTML += `
+        <tr class="text-secondary">
+        <td onclick="Model(${items.id})" scope="col" class="text-start"  data-bs-toggle="modal"
+      data-bs-target="#mewModal">${items.title}</td>
+        <td scope="col" class="text-start">${items.amount}</td>
+        <td scope="col" class="text-start">${items.type}</td>
+        <td scope="col" class="text-start">${items.Category}</td>
+        <td scope="col" class="text-start">${items.date}</td>
+        <td scope="col" class="text-start">${items.note}</td>
+        <td scope="col" class="text-start">
+        <svg onclick="edit(${items.id})" class="text-primary" data-bs-toggle="modal" data-bs-target="#EditBox"
+              data-bs-whatever="@getbootstrap"   xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+  <path d="M12.146.854a.5.5 0 0 1 .708 0l2.292 2.292a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2L2 11.207V13h1.793L14 3.793 11.207 2zM15 1.5L13.5 0 12 1.5 13.5 3 15 1.5z"/>
+</svg>
+<svg onclick="deleteicon(${items.id})"  id"deleteicon" class="ms-3 text-danger" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+  <path d="M5.5 5.5A.5.5 0 0 1 6 5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5zm-1-1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1H4.5v-1z"/>
+  <path d="M14.5 3a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V2a.5.5 0 0 1 .5-.5H5.5l.5-.5h4l.5.5h3.5a.5.5 0 0 1 .5.5v1zM4.118 4 4 14.5A1.5 1.5 0 0 0 5.5 16h5a1.5 1.5 0 0 0 1.5-1.5L11.882 4H4.118z"/>
+</svg>
+</td> </tr>
   
-// `   ;
-//         console.log(item);
+`   ;
+console.log(value);
 
-//     });
 
-// }
+
+
+    });
+}
 
 
 
