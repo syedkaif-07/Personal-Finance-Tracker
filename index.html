@@ -47,7 +47,7 @@
       </div>
     </div>
   </div> -->
- 
+
   <div class="container mt-5">
     <div class="row">
       <div class="nav p-2">
@@ -122,88 +122,88 @@
         </button>
       </div>
 
-        <!-- Add Trsaction Model  -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog ">
-            <div class="modal-content border-light border rounded">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Transaction</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">Title <sup class="text-danger">*</sup>
-                    </label>
-                    <input onchange="handleChange(event)" id="title" name="title" type="text"
-                      class="form-control border rounded" placeholder="e.g. Grocery Shopping">
-                  </div>
-                  <div class="mb-3">
-                    <label for="message-text" class="col-form-label">Amount <sup class="text-danger">*</sup></label>
-                    <input onchange="handleChange(event)" id="amount" class="form-control" type="number" name="amount"
-                      placeholder="$ 0.00">
+      <!-- Add Trsaction Model  -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog ">
+          <div class="modal-content border-light border rounded">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add Transaction</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">Title <sup class="text-danger">*</sup>
+                  </label>
+                  <input onchange="handleChange(event)" id="title" name="title" type="text"
+                    class="form-control border rounded" placeholder="e.g. Grocery Shopping">
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Amount <sup class="text-danger">*</sup></label>
+                  <input onchange="handleChange(event)" id="amount" class="form-control" type="number" name="amount"
+                    placeholder="$ 0.00">
 
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Type <sup class="text-danger">*</sup></label>
+                  <div class="mt-1 d-flex gap-4">
+                    <input onclick="handleChange(event)" name="type" type="button" value="Income"
+                      class="w-50 p-2  border rounded type-btn2" id="type1">
+                    <input onclick="handleChange(event)" name="type" type="button" value="Expense"
+                      class="w-50 p-2 type-btn3 border rounded " id="type2">
                   </div>
-                  <div class="mb-3">
-                    <label for="message-text" class="col-form-label">Type <sup class="text-danger">*</sup></label>
-                    <div class="mt-1 d-flex gap-4">
-                      <input onclick="handleChange(event)" name="type" type="button" value="Income"
-                        class="w-50 p-2  border rounded type-btn2" id="type1">
-                      <input onclick="handleChange(event)" name="type" type="button" value="Expense"
-                        class="w-50 p-2 type-btn3 border rounded " id="type2">
-                    </div>
-                    <div class="mt-3">
-                      <label for="message-text" class="col-form-label">Category <sup class="text-danger">*</sup></label>
-                      <div>
-                        <select onchange="handleChange(event)" id="Category" name="Category" id="Category"
-                          name="Category" class="w-100 p-2 border-1 rounded">
-                          <option value="">Select a Category</option>
-                          <option value="Food and Dining">Food and Dining</option>
-                          <option value="Transportation">Transportation</option>
-                          <option value="Utlities">Utlities</option>
-                          <option value="Entertainment">Entertainment</option>
-                          <option value="Shopping">Shopping</option>
-                          <option value="Shopping">Health & Fitness</option>
-                          <option value="Educatioin">Educatioin</option>
-                          <option value="Bills">Bills</option>
-                          <option value="Travels">Travels</option>
-                          <option value="Salary">Salary</option>
-                          <option value="other">other</option>
+                  <div class="mt-3">
+                    <label for="message-text" class="col-form-label">Category <sup class="text-danger">*</sup></label>
+                    <div>
+                      <select onchange="handleChange(event)" id="Category" name="Category" id="Category" name="Category"
+                        class="w-100 p-2 border-1 rounded">
+                        <option value="">Select a Category</option>
+                        <option value="Food and Dining">Food and Dining</option>
+                        <option value="Transportation">Transportation</option>
+                        <option value="Utlities">Utlities</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Shopping">Health & Fitness</option>
+                        <option value="Educatioin">Educatioin</option>
+                        <option value="Bills">Bills</option>
+                        <option value="Travels">Travels</option>
+                        <option value="Salary">Salary</option>
+                        <option value="other">other</option>
 
-                        </select>
-                        <div class="mt-3">
-                          <label for="message-text" class="col-form-label">Date <sup class="text-danger">*</sup></label>
-                          <div>
-                            <input onchange="handleChange(event)" type="Date" name="date" id="date" class="p-2 w-100">
-                          </div>
+                      </select>
+                      <div class="mt-3">
+                        <label for="message-text" class="col-form-label">Date <sup class="text-danger">*</sup></label>
+                        <div>
+                          <input onchange="handleChange(event)" type="Date" name="date" id="date" class="p-2 w-100">
                         </div>
                       </div>
-                      <div class="mt-4  mb-3">
-                        <label for="optional message form-label">
-                          Note (Optional)
-                        </label>
-                      </div>
-                      <div class="mt-2">
-                        <input onchange="handleChange(event)" type="text" name="note" id="note" class="w-100 p-4  "
-                          placeholder="Add any Additional Details:">
-                      </div>
-                </form>
-              </div>
-              <div class="modal-footer d-flex justify-content-center gap-4">
-                <button type="button" class="btn btn-light text-success  mt-5 border rounded  footerbtn1 p-2 col-4"
-                  data-bs-dismiss="modal">
-                  Cancel
-                </button>
-                <button onclick="transaction()" type="button"
-                  class="modal-footer btn border text-light mt-5 bg-dark footerbtn1 footerbtn2 p-2 "
-                  data-bs-dismiss="modal">Save
-                  Transactioin</button>
-              </div>
+                    </div>
+                    <div class="mt-4  mb-3">
+                      <label for="optional message form-label">
+                        Note (Optional)
+                      </label>
+                    </div>
+                    <div class="mt-2">
+                      <input onchange="handleChange(event)" type="text" name="note" id="note" class="w-100 p-4  "
+                        placeholder="Add any Additional Details:">
+                    </div>
+              </form>
+            </div>
+            <div class="modal-footer d-flex justify-content-center gap-4">
+              <button type="button" class="btn btn-light text-success  mt-5 border rounded  footerbtn1 p-2 col-4"
+                data-bs-dismiss="modal">
+                Cancel
+              </button>
+              <button onclick="transaction()" type="button"
+                class="modal-footer btn border text-light mt-5 bg-dark footerbtn1 footerbtn2 p-2 "
+                data-bs-dismiss="modal">Save
+                Transactioin</button>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
 
 
@@ -257,32 +257,32 @@
   </div>
 
   <!-- table -->
-      <div class="container-fluid mt-5 ">
-        <div class="row ">
-          <div  class=" table-responsive transaction col-md-10 col-sm-12 border mx-auto mb-3">
-            <table class="table border-secondary table-hover">
-              <br>
-              <p>Recent Transactions :</p>
-              <thead class="text-secondary border-secondary ">
-                <tr>
-                  <th scope="col" class="text-start" data-bs-toggle="modal" data-bs-target="#GetBox">Title</th>
-                  <th scope="col" class="text-start"> Amount</th>
-                  <th scope="col" class="text-start">Type</th>
-                  <th scope="col" class="text-start">Category</th>
-                  <th scope="col" class="text-start"> Date</th>
-                  <th scope="col" class="text-start"> Note</th>
-                  <th scope="col" class="text-start"> Actions</th>
-                </tr>
-              </thead>
-              <tbody id="tbody">
-              </tbody>
-            </table>
-            <div class="text-center text-success d-flex justify-content-center mt-5 mb-5 fs-2 h- fw-bold" id="NotFound">
-            </div>
-          </div>
+  <div class="container-fluid mt-5 ">
+    <div class="row ">
+      <div class=" table-responsive transaction col-md-10 col-sm-12 border mx-auto mb-3">
+        <table class="table border-secondary table-hover">
+          <br>
+          <p>Recent Transactions :</p>
+          <thead class="text-secondary border-secondary ">
+            <tr>
+              <th scope="col" class="text-start" data-bs-toggle="modal" data-bs-target="#GetBox">Title</th>
+              <th scope="col" class="text-start"> Amount</th>
+              <th scope="col" class="text-start">Type</th>
+              <th scope="col" class="text-start">Category</th>
+              <th scope="col" class="text-start"> Date</th>
+              <th scope="col" class="text-start"> Note</th>
+              <th scope="col" class="text-start"> Actions</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+          </tbody>
+        </table>
+        <div class="text-center text-success d-flex justify-content-center mt-5 mb-5 fs-2 h- fw-bold" id="NotFound">
         </div>
       </div>
-  
+    </div>
+  </div>
+
 
 
 
@@ -363,7 +363,7 @@
     </div>
   </div>
   </div>
-  </div>  
+  </div>
   </div>
 
   <!-- Edit Model -->
@@ -376,7 +376,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form >
+          <form>
             <div class="mb-3">
               <label for="recipient-name" class="col-form-label">Title <sup class="text-danger">*</sup>
               </label>
@@ -449,21 +449,22 @@
 
 
   <!-- DeleteModal -->
-   <!-- Modal -->
-<div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Delete Row!</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-footer">
-        <button onclick="deleteicon()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button data-bs-dismiss="modal" type="button" class="btn btn-primary">Confirm</button>
+  <!-- Modal -->
+  <div class="modal fade" id="DeleteRow" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" id="DeleteRow">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Delete Row!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <input id="DeleteID" type="text" hidden>
+          <button onclick="deleterow()" data-bs-dismiss="modal" type="button" class="btn btn-primary">Confirm</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
